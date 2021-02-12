@@ -19,9 +19,21 @@ body{
 
 nav{
     width: 75%;
-    height: 10%;
+    height: 8%;
     margin: 15px auto;
     background-color: white;
     border: 1px solid white;
     font-family: 'Lato', sans-serif;
+    color: #707070;
+}
+nav ul{
+    list-style: none;
+    height: 100%;
+    width: 100%;
+    display: inline-block
+
+}
+nav ul li{
+    display: inline-block;
+    line-height: 350%;
 }
