@@ -16,8 +16,8 @@ $gray-icons: #707070;
 
 body{
     width: 100vw;
-    height: 100vh;
-    overflow: hidden;
+    height: 200vh;
+    overflow-x: hidden;
     background-color: $background;
 }
 
@@ -32,8 +32,9 @@ body{
     margin-right: auto;
 }
 
+
 nav{
-    width: 75%;
+    width: 100%;
     height: 8%;
     margin: 15px auto;
     border: 1px solid white;
@@ -100,3 +101,58 @@ nav{
     }
 }
 
+.main {
+    width: 100%;
+    height: 100vh;
+    margin-right: auto;
+    margin-left: auto;
+
+    .side-nav{
+        width: 25%;
+        height: 100%;
+        background-color: #C5CDD1;
+        float: left;
+
+    }
+
+    .media{
+        width: 23%;
+        margin-right: 2%;
+        height: 100%;
+        background-color: #152840;
+        color: white;
+        float: left;
+    }
+    .empty-tile{
+        width: 23%;
+        height: 51%;
+        margin-right: 2%;
+        background-color: gray;
+        float: left;
+    }
+    .facebook-tile, .twitter-tile{
+        width: 25%;
+        height: 24%;
+        float: right;
+    }
+    .facebook-tile{
+        background-color: #4D6BAA;
+        margin-bottom: 1%;
+    }
+    .twitter-tile{
+        background-color: #4FC6F8;
+        margin-top: 1%;
+    }
+
+    .sign-panel, .newsletter-panel{
+        width: 50%;
+        height: 22%;
+        margin-top:2%;
+        background-color: honeydew;
+        float: right;
+    }
+    .newsletter-panel::after{
+        clear: both;
+    }
+
+}
