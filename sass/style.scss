@@ -7,7 +7,25 @@ $gray-icons: #707070;
     flex-direction: row;
     justify-content: space-between;
 }
+@mixin centring($widthValue, $heightValue){
+    width: $widthValue;
+    height: $heightValue;
+    margin: {
+        right: auto;
+        left: auto;
+    }
+    
+}
+@mixin tileProperties($marginProperty, $marginValue, $bgColorValue){
+    margin-#{$marginProperty}: $marginValue;
+    background-color: $bgColorValue;
+}
 
+@mixin tileSize($width, $height, $floatValue){
+    width: $width;
+    height: $height;
+    float: $floatValue;
+}
 *{
     box-sizing: border-box;
     margin: 0;
@@ -26,17 +44,18 @@ body{
 }
 
 .container{
-    width: 80vw;
-    height: 100vh;
-    margin-left: auto;
-    margin-right: auto;
+    @include centring(80vw, 100vh);
 }
 
 
 nav{
-    width: 100%;
-    height: 8%;
-    margin: 15px auto;
+    
+    @include centring(100%, 8%);
+    margin: {
+        top: 15px;
+        bottom: 15px;
+    }
+    
     border: 1px solid white;
     background-color: white;
     font-family: 'Lato', sans-serif;
@@ -56,15 +75,15 @@ nav{
             i{
                 color: #C5CDD1;
             }
+            &.option{
+                flex-basis: 100px;
+            }
+    
+            &.end{
+                justify-self: flex-end;
+            }
         }
 
-        li.option{
-            flex-basis: 100px;
-        }
-
-        li.end{
-            justify-self: flex-end;
-        }
 
         div.empty{
             flex-grow: 1;
@@ -73,19 +92,22 @@ nav{
         li.smedia-panel{
             @include flex();
             flex-basis: 150px;
-            border-right: 1px solid #C5CDD1;
-            border-left: 1px solid #C5CDD1;
+            border: {
+                right: 1px solid #C5CDD1;
+                left: 1px solid #C5CDD1;
+            }
 
             i{
                 flex-basis: 50px;
                 line-height: 350%;
-            }
 
-            i:hover{
-                background-color:$nav-active ;
-                color: white;
-                cursor: pointer;
+                &:hover{
+                    background-color:$nav-active ;
+                    color: white;
+                    cursor: pointer;
+                }
             }
+          
         }
         
         li:not(.smedia-panel):hover{
@@ -102,55 +124,43 @@ nav{
 }
 
 .main {
-    width: 100%;
-    height: 100vh;
-    margin-right: auto;
-    margin-left: auto;
+    @include centring(100%, 100vh);
 
     .side-nav{
-        width: 25%;
-        height: 100%;
+        @include tileSize(25%,100% ,left );
         background-color: #C5CDD1;
-        float: left;
-
     }
 
     .media{
-        width: 23%;
-        margin-right: 2%;
-        height: 100%;
-        background-color: #152840;
+        @include tileSize(23%,100% ,left );
+        @include tileProperties(right, 2%, #152840);
         color: white;
-        float: left;
     }
+
     .empty-tile{
-        width: 23%;
-        height: 51%;
-        margin-right: 2%;
-        background-color: gray;
-        float: left;
+        @include tileSize(23%, 51%,left );
+        @include tileProperties(right,2% ,gray );
     }
-    .facebook-tile, .twitter-tile{
-        width: 25%;
-        height: 24%;
-        float: right;
+
+    %socialTiles{
+        @include tileSize(25%,24% ,right );
     }
+
     .facebook-tile{
-        background-color: #4D6BAA;
-        margin-bottom: 1%;
+        @extend %socialTiles;
+        @include tileProperties(bottom,1% , #4D6BAA)
     }
+
     .twitter-tile{
-        background-color: #4FC6F8;
-        margin-top: 1%;
+        @extend %socialTiles;
+        @include tileProperties(top,1% , #4FC6F8)
     }
 
     .sign-panel, .newsletter-panel{
-        width: 50%;
-        height: 22%;
-        margin-top:2%;
-        background-color: honeydew;
-        float: right;
+        @include tileSize(50%,22% ,right );
+        @include tileProperties(top,2% ,honeydew );
     }
+    
     .newsletter-panel::after{
         clear: both;
     }
