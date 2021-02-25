@@ -2,9 +2,9 @@ $background: #475D7B;
 $nav-active: #56CCC8;
 $gray-icons: #707070;
 
-@mixin flex(){
+@mixin flex($directionValue){
     display: flex;
-    flex-direction: row;
+    flex-direction: $directionValue;
     justify-content: space-between;
 }
 @mixin centring($widthValue, $heightValue){
@@ -37,6 +37,7 @@ body{
     height: 200vh;
     overflow-x: hidden;
     background-color: $background;
+    font-family: 'Lato', sans-serif;
 }
 
 .active{
@@ -48,7 +49,7 @@ body{
 }
 
 
-nav{
+nav.top{
     
     @include centring(100%, 8%);
     margin: {
@@ -58,11 +59,11 @@ nav{
     
     border: 1px solid white;
     background-color: white;
-    font-family: 'Lato', sans-serif;
+    
     color: $gray-icons;
 
     ul{
-        @include flex();
+        @include flex(row);
         height: 100%;
         width: 100%;
         list-style: none;
@@ -90,7 +91,7 @@ nav{
         }
 
         li.smedia-panel{
-            @include flex();
+            @include flex(row);
             flex-basis: 150px;
             border: {
                 right: 1px solid #C5CDD1;
@@ -129,6 +130,60 @@ nav{
     .side-nav{
         @include tileSize(25%,100% ,left );
         background-color: #C5CDD1;
+        nav.side{
+            height: 70%;
+            width: 100%;
+            background-color: #FFF;
+            margin: 0;
+            
+            ul {
+                @include centring(100%, 100%);
+                @include flex(column);
+                font-size: 18px;
+                list-style: none;
+                color: gray;
+
+                li{
+                display: flex;
+                align-items: center;
+                flex-grow:1;
+                padding-left: 25px;
+                box-shadow: 0px 1px #999;
+                text-align: left;
+
+                i{
+                    margin-right: 10px;
+                }
+                &:hover{
+                    background-color: $nav-active;
+                    color: #FFF;
+                    cursor: pointer;
+                }
+            }
+            
+        }
+        }
+        div.contact{
+            @include centring(100%, 30%);
+            @include flex(column);
+
+            div{
+                display: flex;
+                align-items: center; 
+                flex-grow:1;
+                color: whitesmoke;
+                font-size: 14px;
+
+                i{
+                    margin: {
+                        left: 40px;
+                        right: 25px;
+                    }
+                    font-size: 24px;
+                }
+            }
+        }
+        
     }
 
     .media{
