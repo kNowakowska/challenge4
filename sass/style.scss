@@ -19,12 +19,21 @@ $gray-icons: #707070;
 @mixin tileProperties($marginProperty, $marginValue, $bgColorValue){
     margin-#{$marginProperty}: $marginValue;
     background-color: $bgColorValue;
+    position: relative;
 }
 
 @mixin tileSize($width, $height, $floatValue){
     width: $width;
     height: $height;
     float: $floatValue;
+}
+@mixin tileContentProperties($fontSize, $axisYProperty, $axisYValue, $axisXProperty, $axisXValue){
+    font-weight: bold;
+    color: white;
+    font-size: $fontSize;
+    position: absolute;
+    #{$axisXProperty}: $axisXValue;
+    #{$axisYProperty}: $axisYValue;
 }
 *{
     box-sizing: border-box;
@@ -200,16 +209,37 @@ nav.top{
     %socialTiles{
         @include tileSize(25%,24% ,right );
     }
-
-    .facebook-tile{
+    .tile{
         @extend %socialTiles;
-        @include tileProperties(bottom,1% , #4D6BAA)
+        i.logo{
+            @include tileContentProperties(50px, top, 10%, left, 10%);
+        }
+
+        .followers{
+            @include tileContentProperties(20px, bottom, 10%, left, 10%);
+        }
+
+        .following{
+            @include tileContentProperties(20px, bottom, 10%, right, 10%);
+
+            i{
+                margin-left: 5px;
+                &.fa-plus-circle:hover{
+                    cursor: pointer;
+                }
+            }
+
+        }
+        
+    }
+    .facebook{
+        @include tileProperties(bottom,1% , #4D6BAA);
     }
 
-    .twitter-tile{
-        @extend %socialTiles;
-        @include tileProperties(top,1% , #4FC6F8)
+    .twitter{
+        @include tileProperties(top,1% , #4FC6F8);
     }
+    
 
     .sign-panel, .newsletter-panel{
         @include tileSize(50%,22% ,right );
