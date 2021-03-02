@@ -14,6 +14,7 @@
 <body>
     <div class="container">
         <nav class="top">
+            <!-- Question for designer: how should menu for mobile devices look?  -->
             <ul>
                 <li><i class="fas fa-bars"></i></li>
                 <li class="option">Home</li>
@@ -32,17 +33,17 @@
             </ul>
    
         </nav>
-        <div class="main">
-            <div class="side-nav">
+        <main>
+            <aside>
                 <nav class="side">
                     <ul>
-                        <li><i class="fas fa-home"></i> Home</li>
-                        <li><i class="fas fa-shopping-basket"></i> Store</li>
-                        <li><i class="fas fa-edit"></i> Blog</li>
-                        <li><i class="fas fa-users"></i> Community</li>
-                        <li><i class="fas fa-trophy"></i> Contests</li>
-                        <li><i class="fas fa-info-circle"></i> About</li>
-                        <li><i class="fas fa-envelope"></i> Contact</li>
+                        <li id="home"><i class="fas fa-home"></i> Home</li>
+                        <li id="store"><i class="fas fa-shopping-basket"></i> Store</li>
+                        <li id="blog" class="active"><i class="fas fa-edit"></i> Blog</li>
+                        <li id="community"><i class="fas fa-users"></i> Community</li>
+                        <li id="contests"><i class="fas fa-trophy"></i> Contests</li>
+                        <li id="about"><i class="fas fa-info-circle"></i> About</li>
+                        <li id="contact"><i class="fas fa-envelope"></i> Contact</li>
                     </ul>
                 </nav>
                 
@@ -51,25 +52,66 @@
                     <div class="location"><i class="fas fa-map-marker-alt"></i> 1600 Pensylvania <br> Ave NW, Washington <br> DC 20500, USA </div>
                     <div class="email"><i class="fas fa-envelope"></i> hello@website.com <br> office@website.com</div>
                 </div>
-            </div>
-            <div class="media"></div>
-            <div class="empty-tile"></div>
-            <div class="facebook tile">
+            </aside>
+            <section class="media">
+                <!-- There could be any other unordered lists with options for different 'categories' from side nav. 
+                    Author focused only on styles with the submenu only for 'Blog' category.
+                    Additional info: what options for different categories? Should 'Home' button  have submenu? -->
+                <ul id="blog">
+                    <li>
+                        <div class="title">Tech <i class="fas fa-arrow-circle-right"></i></div>
+                        <div class="desc">
+                            Software & App <br>
+                            Gadgets <br>
+                            Mobile
+                        </div>
+                    </li>
+                    <li>
+                        <div class="title">Entertainment <i class="fas fa-arrow-circle-right"></i></div>
+                        <div class="desc">
+                            Film <br>
+                            Gaming <br>
+                            Music <br>
+                            Sport
+                        </div>
+                    </li>
+                    <li>
+                        <div class="title">Business <i class="fas fa-arrow-circle-right"></i></div>
+                        <div class="desc">
+                            Jobs <br>
+                            Marketing <br>
+                            Media
+                        </div>
+                    </li>
+                    <li>
+                        <div class="title">Lifestyle <i class="fas fa-arrow-circle-right"></i></div>
+                        <div class="desc">
+                            Home <br>
+                            Health & Fitness <br>
+                            Travel & Leisure
+                        </div>
+                    </li>
+                </ul>
+            </section>
+            <section class="empty-tile"></section>
+            <!-- TODO: Add script with changing text Follow to Following and icon depending on click. -->
+            <section class="facebook tile">
                 <i class="fab fa-facebook-f logo"></i>
                 <span class="followers">156K</span>
                 <span class="following">Follow <i class="fas fa-plus-circle"></i></span>
 
-            </div>
-            <div class="twitter tile">
+            </section>
+            <section class="twitter tile">
                 <i class="fab fa-twitter logo"></i>
                 <span class="followers">89K</span>
                 <span class="following">Following <i class="fas fa-check-circle"></i></span>
 
-            </div>
-            <div class="sign-panel"></div>
-            <div class="newsletter-panel"></div>
+            </section>
+            <section class="sign-panel"></section>
+            <section class="newsletter-panel"></section>
 
-        </div>
+        </main>
+        <!-- TODO slider -->
         
     </div>
     
