@@ -280,15 +280,17 @@ main {
             @include tileContentProperties(20px, bottom, 10%, left, 10%);
         }
 
-        .following{
+        .clickable{
             @include tileContentProperties(20px, bottom, 10%, right, 10%);
 
             i{
                 margin-left: 5px;
-                &.fa-plus-circle:hover{
-                    cursor: pointer;
-                }
+               
             }
+            &:hover{
+                cursor: pointer;
+            }
+            
 
         }
         
