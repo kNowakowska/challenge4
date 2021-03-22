@@ -35,6 +35,14 @@ $gray-icons: #707070;
     #{$axisXProperty}: $axisXValue;
     #{$axisYProperty}: $axisYValue;
 }
+@mixin panelFontProperties($fontSize, $fontWeight){
+    text-align: center;
+    font-size:$fontSize;
+    font-weight: $fontWeight;
+    color:#475055;
+    letter-spacing: 1px;
+    line-height: 200%;
+}
 *{
     box-sizing: border-box;
     margin: 0;
@@ -306,7 +314,47 @@ main {
 
     .sign-panel, .newsletter-panel{
         @include tileSize(50%,22% ,right );
-        @include tileProperties(top,2% ,honeydew );
+        @include tileProperties(top,2% ,white);
+        padding-top: 10px;
+        h1{   
+            @include panelFontProperties(24px, 400)  ;
+        }
+        p{
+            @include panelFontProperties(18px, 300);
+        }
+        .icons {
+            text-align: center;
+            padding-top: 15px;
+            img{
+                padding-right: 30px;
+                &:hover{
+                    cursor: pointer
+                }
+            }
+        }
+        form{
+            text-align: center;
+            padding-top: 10px;
+            input{
+                width: 50%;
+                line-height: 250%;
+                padding: 0 10px;
+            }
+            button{
+                line-height: 250%;
+                padding: 0 10px;
+                margin-left: 15px;
+                border: none;
+                border-radius: 10%;
+                background-color: #EA6060;
+                font-weight: bold;
+                text-transform: uppercase;
+                color: white;
+                &:hover{
+                    cursor: pointer
+                }
+            }
+        }
     }
     
     .newsletter-panel::after{
