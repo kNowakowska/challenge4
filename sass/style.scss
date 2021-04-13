@@ -93,12 +93,35 @@ nav.top{
             i{
                 color: #C5CDD1;
             }
+            
             &.option{
                 flex-basis: 100px;
             }
     
             &.end{
                 justify-self: flex-end;
+            }
+        }
+        li.search{
+            @include flex(row);
+            flex-basis: 150px;
+            
+            input[type="search"]{
+                flex-basis: 50px;
+                height: 30px;;
+                border: 1px solid #999;
+                margin-right:10px;
+                margin-top: 12px;
+            }
+            i{
+                flex-basis:50px;
+                line-height: 350%;
+                margin-right:10px;
+                &:hover{
+                    cursor: pointer;
+                    background-color: inherit;
+                    color: #C5CDD1;
+                }
             }
         }
 
@@ -128,7 +151,7 @@ nav.top{
           
         }
         
-        li:not(.smedia-panel):hover{
+        li:not(.smedia-panel):not(.search):hover{
             background-color:$nav-active;
             color: white;
             cursor: pointer;
