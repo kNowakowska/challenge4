@@ -335,12 +335,13 @@ main {
         form{
             text-align: center;
             padding-top: 10px;
-            input{
+            input[type="email"]{
                 width: 50%;
                 line-height: 250%;
                 padding: 0 10px;
+                
             }
-            button{
+            input[type="submit"]{
                 line-height: 250%;
                 padding: 0 10px;
                 margin-left: 15px;
@@ -353,6 +354,7 @@ main {
                 &:hover{
                     cursor: pointer
                 }
+                
             }
         }
     }
